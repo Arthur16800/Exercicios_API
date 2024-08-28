@@ -19,6 +19,43 @@ class AppControler {
 
   //Define as rotas da nossa API   
   routes() {
+
+    const users = [];
+  //req = request  res = response
+    this.express.post("/users", (req, res)=>{
+      const {id, nome, email, senha} = req.body;
+      users.push({id, nome, email, senha});
+      res.status(200).send({message:"Usuario cadastrado com sucesso!"});
+    });
+
+    this.express.post("/auth", (req, res)=>{
+      const {email, senha} = req.body;
+      const user = users.find((user) => user.email == email && user.senha == senha);
+
+      if(user){
+        res.status(200).send({message:"Usuario encontrado com sucesso!"});
+      }
+      else{
+        res.status(400).send({message:'Usuário não encontradoo'});
+      }
+       
+    })
+
+    this.express.get("/users/:id", (req, res)=>{
+      const {id} = req.params;
+      console.log(id)
+      const user = users.find((user) => user.id == id);
+             
+      if(user){
+        res.status(200).send(user);
+      }
+      else{
+        res.status(400).send({message:'Usuário não encontrado'});
+      }
+      console.log(user)
+      console.log(users)
+    });
+
     // Define uma rota GET para o caminho health
     this.express.get("/health/",(req, res) => {
         res.send({ status:"OK", nome:"Arthur"});

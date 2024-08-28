@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    
-  },"start": "node src/servers.js"
+    "start": "node src/servers.js"
+  },
   "author": "Arthur",
   "license": "ISC",
   "dependencies": {
