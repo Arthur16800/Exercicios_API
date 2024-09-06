@@ -21,7 +21,7 @@ class AppControler {
   routes() {
     // Define uma rota GET para o caminho health
     this.express.get("/health/",(req, res) => {
-        res.send({nome:"Arthur", idade:"17", CPF:"474.226.228.06"});
+        res.send({nome:"Arthur", idade:"00", CPF:"111.111.111.11"});
     });//Essa rota é usada para verificar se a API esta OK
   }
 }
